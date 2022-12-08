@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS clients;
+DROP TABLE IF EXISTS providers;
+
+CREATE TABLE clients (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  email TEXT NOT NULL,
+  phone TEXT NOT NULL
+);
+
+CREATE TABLE providers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name NOT NULL,
+  client_id INTEGER NOT NULL,
+  FOREIGN KEY (client_id) REFERENCES clients (id)
+);
