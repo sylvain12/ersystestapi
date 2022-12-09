@@ -31,7 +31,7 @@ def create_app(test_config=None):
 
     # Register api
     from . import api
-    app.register_blueprint(api.bp)
+    app.register_blueprint(api.api_bg)
 
     @app.route('/')
     def api_home():

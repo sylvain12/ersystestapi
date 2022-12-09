@@ -35,6 +35,15 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
+@click.command('drop-clients')
+def drop_client_table_cmd():
+    """Clear client data."""
+    db = get_db()
+    db.execute("DROP TABLE IF EXIST clients")
+    click.echo('Client table cleaned.')
+
+
+
 
 def init_app(app: Flask):
     app.teardown_appcontext(close_db)
